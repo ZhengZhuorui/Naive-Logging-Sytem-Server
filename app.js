@@ -17,6 +17,7 @@ var expert_middle = require('./routes/expert_middle')
 var expert_end = require('./routes/expert_end')
 var self_evaluation = require('./routes/self_evaluation')
 var serviceobject = require('./routes/serviceobject')
+var dbcommon = require('./routes/dbcommon')
 var app = express();
 
 // view engine setup
@@ -52,11 +53,11 @@ app.use('/log/worker', worker);
 app.use('/log/mutualcomment_begin',mutualcomment_begin);
 app.use('/log/mutualcomment_middle',mutualcomment_middle);
 app.use('/log/mutualcomment_end',mutualcomment_end);
-app.use('/log/expert_middle',expert_middle)
-app.use('/log/expert_end',expert_end)
-app.use('/log/self_evaluation',self_evaluation)
-app.use('/log/serviceobject',serviceobject)
-
+app.use('/log/expert_middle',expert_middle);
+app.use('/log/expert_end',expert_end);
+app.use('/log/self_evaluation',self_evaluation);
+app.use('/log/serviceobject',serviceobject);
+app.use('/log/dbcommon',dbcommon);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
