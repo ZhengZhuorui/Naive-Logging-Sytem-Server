@@ -6,7 +6,7 @@ var fx = require('mkdir-recursive');
 
 var MongoCLient = require('mongodb').MongoClient, assert = require('assert');
 
-var url = 'mongodb://localhost:27017/dashilan'
+var url = 'mongodb://localhost:27017/dashilan';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

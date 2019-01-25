@@ -5,7 +5,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var formidable = require('formidable');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var residence = require('./routes/residence');
@@ -13,11 +12,12 @@ var worker = require('./routes/worker');
 var mutualcomment_begin = require('./routes/mutualcomment_begin');
 var mutualcomment_middle = require('./routes/mutualcomment_middle');
 var mutualcomment_end = require('./routes/mutualcomment_end');
-var expert_middle = require('./routes/expert_middle')
-var expert_end = require('./routes/expert_end')
-var self_evaluation = require('./routes/self_evaluation')
-var serviceobject = require('./routes/serviceobject')
-var dbcommon = require('./routes/dbcommon')
+var expert_middle = require('./routes/expert_middle');
+var expert_end = require('./routes/expert_end');
+var self_evaluation = require('./routes/self_evaluation');
+var serviceobject = require('./routes/serviceobject');
+var dbcommon = require('./routes/dbcommon');
+var indexCalc = require('./routes/indexCalc');
 var app = express();
 
 // view engine setup
@@ -58,6 +58,7 @@ app.use('/log/expert_end',expert_end);
 app.use('/log/self_evaluation',self_evaluation);
 app.use('/log/serviceobject',serviceobject);
 app.use('/log/dbcommon',dbcommon);
+app.use('/log/indexCalc',indexCalc);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -75,6 +76,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 app.listen(app.get('port'));
 module.exports = app;

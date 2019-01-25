@@ -1,4 +1,48 @@
+# Program & Database Description
+
+Written by Zhuorui Zheng.
+
+### introduction and pre-knowledge
+
+​	The program is mainly receive data from Wechat applet and calculate some index about these data, it likes backend and not exposed to other people.However, I don't care about anything security. It's best that you have time to change it safer.
+
+​	Before reading and modifying the code, please make sure that you are skilled in node.js, including the express, the promise and so on. You should also know about the Mongo which is a popular No-sql database.
+
+### Program index:
+
+​	If you know about express framework, you will know each file is doing what. Here are some details.
+
+​	Because it's a backend program, so the view is none.
+
+​	In routes: I only write the dbcommon.js and indexCalc.js, the first is simple function to deal the easy insertion to database, the second is function to deal the easy index requirement and push these requirement to corresponding function.
+
+​	In Public: I write util.js and indexCalc.js now, there are some common function in util.js, and indexCalc.js is to calculate some easy index.
+
+​	Why I name indexCalc.js, because I don't know there are so many index to ask for. I name it first and I am too lazy to change it.
+
+### Database collection
+
+​	I don't know mongodb before and reject it at first. However, I think it so good when I use it. It's friendly to programmer and I suggest you learn it strongly.
+
+​	Due to historical problems, the previous data in collection are not respond the format. It's nothing, please forget it.
+
+​	We store up the index because I don't want the next people repeat calculating it. 
+
+​	complex_index:{organization: str,type: str,year: int, month: int}, to store complex index
+
+​	(expert,residence,mutual_comment,self_evaluation,serviceobject,worker)(\_begin|\_end|\_middle): depend on the Wechat applet
+
+​	(expert,residence,mutual_comment,self_evaluation,serviceobject)(\_begin|\_end|\_middle)_index: simple average score, it's a bad design but I have create these  before...
+
+​	organization: {province: str, city: str, district: str, street: str, community: str, organization: str} to store the organization message
+
+​	index_stat:{"collectionName": str,type: str, year: str,} to judge if a index have calculated before.
+
+
+
 # 文档
+
+
 
 ## 注意：
 
